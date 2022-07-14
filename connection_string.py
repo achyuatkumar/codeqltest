@@ -1,9 +1,10 @@
-import pypyodbc as pyodbc
-
-cnxn = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};"
-                  "SERVER=localhost;"
-                  "DATABASE=test;"
-                  "UID=YYY;"
-                  "PWD=XXX;"
-                  "TrustServerCertificate=no;"
-                  "Connection Timeout=60")
+import pyodbc 
+# Some other example server values are
+# server = 'localhost\sqlexpress' # for a named instance
+# server = 'myserver,port' # to specify an alternate port
+server = 'tcp:myserver.database.windows.net' 
+database = 'mydb' 
+username = 'myusername' 
+password = 'mypassword' 
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+cursor = cnxn.cursor()
